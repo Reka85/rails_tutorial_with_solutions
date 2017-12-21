@@ -8,4 +8,11 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, length: {minimum: 6}, presence: true # without he could choose pw-s with 6+ whitespaces
+
+  #returns hash digest of a string
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
