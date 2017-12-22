@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def authenticated?(remember_token)# it is not the same as remember_token above
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+  # does the opposite of remember
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end
