@@ -8,7 +8,7 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: {minimum: 6}, presence: true # without he could choose pw-s with 6+ whitespaces
+  validates :password, length: {minimum: 6}, allow_nil: true, presence: true # without he could choose pw-s with 6+ whitespaces
 
   #returns hash digest of a string
   def self.digest(string)
