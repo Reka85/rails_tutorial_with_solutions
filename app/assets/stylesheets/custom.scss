@@ -186,6 +186,17 @@ input {
 
 images/figures/signup_form_3rd_edition
 
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
 
 /* miscellaneous */
 
