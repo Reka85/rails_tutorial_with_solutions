@@ -61,7 +61,7 @@ class UsersController < ApplicationController
         redirect_to login_url
       end
     end
-    #onfirms the right user
+    #confirms the right user
     def correct_user
       redirect_to root_url unless current_user?(@user)
     end
