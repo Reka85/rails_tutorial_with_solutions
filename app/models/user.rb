@@ -28,9 +28,10 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
   # retuns true if the token matches the digest
-  def authenticated?(remember_token)# it is not the same as remember_token above
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")# we use metaprogramming here
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
   # does the opposite of remember
   def forget
