@@ -93,6 +93,7 @@ class UserTest < ActiveSupport::TestCase
     michael.follow(archer)
     # verify that user follows the other one
     assert michael.following?(archer)
+    assert archer.followers.include?(michael)
     # unfollow
     michael.unfollow(archer)
     # verify unfollow
