@@ -3,7 +3,7 @@ require 'test_helper'
 class RelationshipsControllerTest < ActionDispatch::IntegrationTest
   test "create should require logged-in user" do
     assert_no_difference "Relationship.count" do
-      post Relationships_path
+      post relationships_path
     end
     assert_redirected_to login_url
   end
