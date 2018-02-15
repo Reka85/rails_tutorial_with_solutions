@@ -37,5 +37,10 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 
+To sign up locally follow the sign up process on the page, then check the server log and click on the activation link (which has the below format) to activate the account
+
+```
+<a href="http://localhost:3000/account_activations/*token*/edit?email=*your email*">Activate</a>
+```
 For more information, see the
 [*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
